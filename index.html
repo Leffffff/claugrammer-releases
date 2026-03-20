@@ -168,28 +168,29 @@
 
     .install-cmd {
       margin-top: 24px;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       background: var(--bg2);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 12px 20px;
       font-family: 'Menlo', 'Monaco', monospace;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text2);
       cursor: pointer;
       transition: border-color 0.15s;
-      position: relative;
+      max-width: 90vw;
+      overflow-x: auto;
+      white-space: nowrap;
     }
     .install-cmd:hover { border-color: var(--purple); }
     .install-cmd code { color: var(--text); }
     .install-cmd .copy-hint {
-      position: absolute;
-      right: -60px;
-      top: 50%;
-      transform: translateY(-50%);
       font-size: 11px;
       color: var(--text3);
       font-family: -apple-system, sans-serif;
+      flex-shrink: 0;
     }
 
     /* ── Screenshot ── */
@@ -432,8 +433,8 @@
     <a href="https://github.com/Leffffff/claugrammer-releases/releases/latest" class="btn btn-primary">Download</a>
     <a href="#features" class="btn btn-secondary">Learn more</a>
   </div>
-  <div class="install-cmd" onclick="navigator.clipboard.writeText('curl -sL https://github.com/Leffffff/claugrammer-releases/releases/latest/download/install.sh | bash')">
-    <code>curl -sL .../install.sh | bash</code>
+  <div class="install-cmd" onclick="navigator.clipboard.writeText('curl -sL https://github.com/Leffffff/claugrammer-releases/releases/latest/download/install.sh | bash'); this.querySelector('.copy-hint').textContent='Copied!'; setTimeout(()=>this.querySelector('.copy-hint').textContent='click to copy',2000)">
+    <code>curl -sL https://github.com/Leffffff/claugrammer-releases/releases/latest/download/install.sh | bash</code>
     <span class="copy-hint">click to copy</span>
   </div>
 </section>
